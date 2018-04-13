@@ -16,10 +16,11 @@
     }
     .modes {
         position: absolute;
-        top: 0;
+        top: 50px;
+        background: rgba(0, 0, 0, 0.68);
         right: 0;
         padding: 16px;
-        color: rgba(0, 0, 0, 0.68);
+        color: rgba(255, 255, 255, 0.68);
         .fa {
             margin-right: 8px;
         }

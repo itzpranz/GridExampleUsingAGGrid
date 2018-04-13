@@ -10,15 +10,23 @@
     color: $primaryColorText;
     .title {
         flex: auto;
-        font-weight: 200;
-        a {
+        font-weight: 400;
+        .link {
+            font-weight: 700;
             color: $accentColor;
         }
     }
     .icon {
         flex: none;
-        width: 48px;
         text-align: center;
+        .fa {
+            width: 48px; 
+        }
+        div {
+            float: left;
+            font-size: 14px;
+            padding-left: 8px;
+        }
     }
     .icon:hover {
         background-color: $accentColor;

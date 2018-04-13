@@ -1,0 +1,28 @@
+<div class="home-page">
+  <div class="grid-area">
+      <ag-grid-angular style="width: 750px; height: 500px;" class="ag-theme-balham"
+          [rowData]="rowData"
+          [columnDefs]="columnDefs"
+          (columnEverythingChanged)="onColumnEvent($event)"
+          (columnRowGroupChanged)="onColumnEvent($event)"
+          (columnValueChanged)="onColumnEvent($event)"
+          (columnMoved)="onColumnEvent($event)"
+          (columnVisible)="onColumnEvent($event)"
+          (columnGroupOpened)="onColumnEvent($event)"
+          (columnResized)="onColumnEvent($event)"
+          (columnPinnedCountChanged)="onColumnEvent($event)">
+    </ag-grid-angular>
+    <div class="modes">
+      <div><i class="fa fa-circle{{editModeOn ? '' : '-o'}}" aria-hidden="true"></i>Editing - {{editModeOn ? 'On' : 'Off'}}</div>
+      <div><i class="fa fa-circle{{structuringModeOn ? '' : '-o'}}" aria-hidden="true"></i>Structuring - {{structuringModeOn ? 'On' : 'Off'}}</div>
+    </div>
+    <button *ngIf="editModeOn" (click)="addRow()" class="fab"><i class="fa fa-plus" aria-hidden="true"></i></button>
+  </div>
+  <div class="action-area">
+    <button (click)="clear()">Default Data</button>
+    <button *ngIf="!editModeOn" (click)="enableEditing()">Enable Editing</button>
+    <button *ngIf="!structuringModeOn" (click)="enableStructuring()">Enable Structuring</button>
+    <button class="right" *ngIf="structuringModeOn" (click)="saveStructure()">Save Structure</button>
+    <button class="right" *ngIf="editModeOn" (click)="saveValues()">Save Values</button>
+  </div>
+</div>

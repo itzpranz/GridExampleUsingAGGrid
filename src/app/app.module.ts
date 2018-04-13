@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent,
+    ToolbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AgGridModule.withComponents([HomePageComponent])
   ],
   providers: [],
   bootstrap: [AppComponent]

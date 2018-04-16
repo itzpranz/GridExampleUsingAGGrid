@@ -41,24 +41,23 @@ export class HomePageComponent implements OnInit {
   addRow() {
     this.rowData.push(
       {
-            "_id": Math.random(),
-            "index": 0,
-            "guid": "",
-            "isActive": false,
-            "balance": "",
-            "picture": "",
-            "age": '',
-            "eyeColor": "",
-            "name": "",
-            "gender": "",
-            "company": "",
-            "email": "",
-            "phone": "",
-            "address": "",
-            "about": "",
-            "registered": "",
-            "latitude": '',
-            "longitude": ''
+            _id: Math.random(),
+            index: 0,
+            guid: '',
+            isActive: false,
+            balance: '',
+            picture: '',
+            age: '',
+            eyeColor: '',
+            name: '',
+            gender: '',
+            company: '',
+            email: '',
+            phone: '',
+            address: '',
+            registered: '',
+            latitude: '',
+            longitude: ''
       }
     );
     this.rowData = Object.assign([], this.rowData);

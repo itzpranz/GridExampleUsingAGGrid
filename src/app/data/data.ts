@@ -19,6 +19,10 @@ export default class DATA {
             field: 'gender',
             editable: false,
             pinned: null,
+            cellEditor: 'agSelectCellEditor',
+            cellEditorParams: {
+                values: ['male', 'female']
+            },
             suppressMovable: true
         },
         {

@@ -13,12 +13,55 @@
         justify-content: center;
         align-items: center;
         position: relative;
+        @media screen and (max-height: 650px) {
+            display: block;
+            overflow: auto;
+            ag-grid-angular {
+                margin: 16px auto;
+            }
+        }
+    }
+    .creator {
+        position: fixed;
+        top: 108px;
+        background: rgba(#000, .68);
+        right: 0;
+        padding: 4px 16px;
+        .example {
+            color: rgba(#fff, .38);
+            font-size: 12px;
+        }
+        .name {
+            color: rgba(#fff, .87);
+            font-size: 20px;
+        }
+        .icons {
+            display: flex;
+            justify-content: space-between;
+            .fa {
+                font-size: 24px;
+                color: white;
+                padding: 4px;
+            }
+            .fa-github:hover  {
+                background-color: #913399;
+            }
+            .fa-facebook-official:hover {
+                background-color: #3B5998;
+            }
+            .fa-twitter:hover {
+                background-color: #1da1f2;
+            }
+            .fa-linkedin:hover {
+                background-color: #0077B5;
+            }
+        }
     }
     .modes {
-        position: absolute;
-        top: 50px;
+        position: fixed;
+        top: 108px;
         background: rgba(0, 0, 0, 0.68);
-        right: 0;
+        left: 0;
         padding: 16px;
         color: rgba(255, 255, 255, 0.68);
         .fa {
@@ -77,6 +120,39 @@
         }
         
     }
+    .pin-button {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        margin: 0 8px;
+        background-color: white;
+        color: $primaryTextColor;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        outline: 0;
+        border: none;
+        -webkit-tap-highlight-color: transparent;
+        display: inline-block;
+        white-space: nowrap;
+        text-decoration: none;
+        vertical-align: baseline;
+        text-align: center;
+        min-width: 88px;
+        line-height: 36px;
+        padding: 0 16px;
+        border-radius: 2px;
+        transform: translate3d(0,0,0);
+        transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    }
+    .pin-button:hover {
+        background: #DDD;
+    }
+    
     .fab {
         position: absolute;
         bottom: 16px;

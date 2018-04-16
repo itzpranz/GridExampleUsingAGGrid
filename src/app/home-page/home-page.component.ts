@@ -7,11 +7,14 @@ import DATA from '../data/data';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  private gridApi;
+  private gridColumnApi;
   rowData: any[];
   columnDefs: any[];
   colData: any[];
   editModeOn = false;
   structuringModeOn = false;
+  namePinned = false;
   constructor() {
     this.checkData();
   }
@@ -24,6 +27,11 @@ export class HomePageComponent implements OnInit {
     this.rowData = JSON.parse(localStorage.getItem('data'));
     this.columnDefs = JSON.parse(localStorage.getItem('col_data'));
     this.colData = JSON.parse(localStorage.getItem('col_data'));
+    for (const x of this.columnDefs) {
+      if (x.field === 'name' && x.pinned === 'left') {
+        this.namePinned = true;
+      }
+    }
     console.log(this.colData);
   }
 
@@ -56,7 +64,28 @@ export class HomePageComponent implements OnInit {
     this.rowData = Object.assign([], this.rowData);
     console.log(this.rowData);
   }
-
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+  }
+  pinName() {
+    this.gridColumnApi.setColumnPinned('name', 'left');
+    this.namePinned = true;
+    for (const x of this.colData) {
+      if (x.field === 'name') {
+        x.pinned = 'left';
+      }
+    }
+  }
+  unpinName() {
+    this.gridColumnApi.setColumnPinned('name', null);
+    this.namePinned = false;
+    for (const x of this.colData) {
+      if (x.field === 'name') {
+        x.pinned = null;
+      }
+    }
+  }
   onColumnEvent(evt) {
     switch (evt.type) {
       case 'columnMoved':
@@ -90,6 +119,9 @@ export class HomePageComponent implements OnInit {
 
   clear() {
     localStorage.clear();
+    this.editModeOn = false;
+    this.structuringModeOn = false;
+    this.namePinned = false;
     this.checkData();
   }
 

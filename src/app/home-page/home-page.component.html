@@ -10,13 +10,25 @@
           (columnVisible)="onColumnEvent($event)"
           (columnGroupOpened)="onColumnEvent($event)"
           (columnResized)="onColumnEvent($event)"
-          (columnPinnedCountChanged)="onColumnEvent($event)">
+          (columnPinnedCountChanged)="onColumnEvent($event)"
+          (gridReady)="onGridReady($event)">
     </ag-grid-angular>
     <div class="modes">
       <div><i class="fa fa-circle{{editModeOn ? '' : '-o'}}" aria-hidden="true"></i>Editing - {{editModeOn ? 'On' : 'Off'}}</div>
       <div><i class="fa fa-circle{{structuringModeOn ? '' : '-o'}}" aria-hidden="true"></i>Structuring - {{structuringModeOn ? 'On' : 'Off'}}</div>
     </div>
+    <div class="creator">
+      <div class="example">Example By : </div>
+      <div class="name">Pranjal Srivastava</div>
+      <div class="icons">
+          <a href="https://github.com/itzpranz"><i class="fa fa-github" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/itzpranz"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/itzpranz"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/in/pranjalpranz/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      </div>
+    </div>
     <button *ngIf="editModeOn" (click)="addRow()" class="fab"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    <button *ngIf="structuringModeOn" (click)="namePinned ? unpinName() : pinName()" class="pin-button"> <i class="fa fa-thumb-tack" style="margin-right: 8px" aria-hidden="true"></i>{{ namePinned ? 'Unpin Name' : 'Pin Name to Left' }} </button>
   </div>
   <div class="action-area">
     <button (click)="clear()">Default Data</button>
